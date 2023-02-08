@@ -1,0 +1,699 @@
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    <title>OWA</title>
+    <link rel = "stylesheet" href = "css/bootstrap.min.css">
+    <script src = "js/jquery.min.js"></script>
+    <script src = "js/popper.min.js"></script>
+    <script src = "js/bootstrap.min.js"></script>
+</head> 
+<body>
+    <a href="#bottom">
+        <button>bottom</button>
+    </a>
+    <!-- text display -->
+    <div class = "container">
+        <h1>Display Heading using predefined classes</h1>
+        <h1 class = "display-1">display-1</h1>
+        <h1 class = "display-2">display-2</h1>
+        <h1 class = "display-3">display-3</h1>
+        <h1 class = "display-4">display-4</h1>
+    </div>
+
+    <hr/>
+    <hr/>
+    <hr/>
+
+    <!-- text align with blockqoute -->
+    <div class = "container">
+        <p class = "text-left">text-left</p>
+        <p class = "text-center">text-center</p>
+        <p class = "text-right">text-right</p>
+        <p class = "text-justify">text-justify</p>
+        <blockquote class = "blockquote">
+            <p>You can't cross the sea merely by standing and string at the water.</p>
+            <footer class = "blockquote-footer">owa owa</footer>
+        </blockquote>
+    </div>
+
+    <hr/>
+    <hr/>
+    <hr/>
+
+    <!-- case class -->
+    <div class = "container">
+        <h1>Typography concept</h1>
+        <p class = "text-lowercase">SUBJECT</p>
+        <p class = "text-uppercase">subject</p>
+        <p class = "text-capitalize">subJECT</p> <!--only the first letter-->
+    </div>
+
+    <hr/>
+    <hr/>
+    <hr/>
+
+    <!-- font -->
+    <div class = "container-fluid">
+        <h1>Various classes of Font weight and italics</h1>
+        <i class = "font-weight-bold">bold text</i> <!-- class = "fonts" can also use in any tag -->
+        <p class = "font-weight-normal">normal text</p>
+        <p class = "font-weight-light">light text</p>
+        <p class = "font-italic">italics text</p> <!--not weight-->
+    </div>
+
+    <hr/>
+    <hr/>
+    <hr/>
+
+    <!-- h1 - h6 heading using bootstrap -->
+    <div class = "container">
+        <i class = "h1">Bootstrap heading h1</i> <!-- class = "h1 - h6" can also use in any tag -->
+        <p class = "h2">Bootstrap heading h2</p>
+        <p class = "h3">Bootstrap heading h3</p>
+        <p class = "h4">Bootstrap heading h4</p>
+        <p class = "h5">Bootstrap heading h5</p>
+        <p class = "h6">Bootstrap heading h6</p>
+    </div>
+
+    <hr/>
+    <hr/>
+    <hr/>
+    
+    <!-- mark small lead -->
+    <div class = "container">
+        <p class = "mark">this is mark</p>
+        <p class = "small">this is small</p>
+        <p class = "lead">this is lead</p>
+    </div>
+
+    <hr/>
+    <hr/>
+    <hr/>
+
+    <!-- list inline -->
+    <div class = "container">
+        <h3>list inline</h3>
+        <ul class = "list-inline">
+            <li class = "list-inline-item">home</li>
+            <li class = "list-inline-item">media</li>
+            <li class = "list-inline-item">products</li>
+            <li class = "list-inline-item">video</li>
+            <li class = "list-inline-item">contact</li>
+        </ul>
+    </div>
+    
+    <hr/>
+    <hr/>
+    <hr/>
+
+    <!-- Blockquote -->
+    <div class = "container">
+        <h1>Blockquotes</h1>
+        <blockquote class = "blockqoute">
+            <p>You can't cross the sea merely by standing and staring at the water.</p>
+        </blockquote>
+    </div>
+
+    <hr/>
+    <hr/>
+    <hr/>
+
+    <!-- color code -->
+    <div class = "container">
+        <p class = "text-primary">Using text-primary</p>
+        <p class = "text-secondary">Using text-secondary</p>
+        <p class = "text-success">Using text-success</p>
+        <p class = "text-danger">Using text-danger</p>
+        <p class = "text-warning">Using text-warning</p>
+        <p class = "text-info">Using text-info</p>
+        <p class = "text-light bg-dark">Using text-light bg-dark</p>
+        <p class = "text-dark">Using text-dark</p>
+    </div>
+
+    <hr/>
+    <hr/>
+    <hr/>
+
+    <!--grid classes col-->
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-sm-2 bg-primary">Using bg-primary</div> <!-- can use col- for extra small, col-sm- for small, col-md- for medium, col-lg- for large, col-xl- for extra large -->
+            <div class = "col-sm-2 bg-success">Using bg-success</div>
+            <div class = "col-sm-2 bg-warning">Using bg-warning</div>
+            <div class = "col-sm-2 bg-info">Using bg-info</div>
+            <div class = "col-sm-2 bg-danger">Using bg-danger</div>
+            <div class = "col-sm-2 bg-secondary">Using bg-secondary</div>
+        </div>
+        <div class = "row">
+            <div class  = "col-sm-6 bg-dark">Using bg-dark</div>
+            <div class  = "col-sm-6 bg-info">Using bg-info</div>
+        </div>
+        <div class = "row">
+            <div class = "col-sm-4 bg-danger">owa owa</div>
+            <div class = "col-sm-4 bg-warning">owa owa</div>
+            <div class = "col-sm-4 bg-success">owa owa</div>
+        </div>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!-- large grid example -->
+    <div class = "container">
+        <h1>large grid example</h1>
+        <div class = "row">
+            <div class = "col-sm-8 col-md-6 col-lg-10 bg-dark text-light">Using col-sm-8, col-md-6, col-lg-10</div>
+            <div class = "col-sm-4 col-md-6 col-lg-2 bg-info text-light">Using col-sm-4, col-md-6, col-lg-2</div>
+        </div>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!-- extra large grid example -->
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-sm-10 col-md-8 col-lg-6 col-xl-4 bg-primary">Using col-sm-3, col-md-6, col-lg-4, col-xl-2</div>
+            <div class = "col-sm-4 col-md-6 col-lg-8 col-xl-10 bg-danger">Using col-sm-9, col-md-6, col-lg-8, col-xl-10</div>
+        </div>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!-- nesting column grid -->
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-sm-8" style = "background-color: red;">col-sm-8
+                <div class = "row">
+                    <div class = "col-sm-6" style = "background-color: yellow;">col-sm-6</div>
+                    <div class = "col-sm-6" style = "background-color: green;">col-sm-6</div>
+                </div>
+            </div>
+            <div class = "col-sm-4" style = "background-color: blue;">col-sm-4</div>
+        </div>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!-- nested column example -->
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-sm-6" style = "background-color: red;">col-sm-6
+                <div class = "row">
+                    <div class = "col-sm-4" style = "background-color: yellow;">col-sm-4</div>
+                    <div class = "col-sm-4" style = "background-color: green;">col-sm-4</div>
+                    <div class = "col-sm-4" style = "background-color: red;">col-sm-4</div>
+                </div>
+            </div>
+            <div class = "col-sm-6" style = "background-color: blue;">col-sm-6
+                <div class = "row">
+                    <div class = "col-sm-4" style = "background-color: yellow;">col-sm-4</div>
+                    <div class = "col-sm-4" style = "background-color: green;">col-sm-4</div>
+                    <div class = "col-sm-4" style = "background-color: red;">col-sm-4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!--nested column example -->
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-sm-8"  style = "background-color: red;">col-sm-8
+                <div class = "row">
+                    <div class = "col-sm-6" style = "background-color: yellow;">col-sm-6</div>
+                    <div class = "col-sm-6" style = "background-color: green;">col-sm-6</div>
+                </div>
+            </div>
+            <div class = "col-sm-4" style = "background-color: blue;">col-sm-4
+                <div class = "row">
+                    <div class = "col-sm-12" style = "background-color: yellow;">col-sm-12</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!--nested column example -->
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-sm-8"  style = "background-color: red;">col-sm-8
+                <div class = "row">
+                    <div class = "col-sm-6" style = "background-color: yellow;">col-sm-6
+                        <div class = "row">
+                            <div class = "col-sm-4" style = "background-color: red;">col-sm-4</div>
+                            <div class = "col-sm-4" style = "background-color: green;">col-sm-4</div>
+                            <div class = "col-sm-4" style = "background-color: blue;">col-sm-4</div>
+                        </div>
+                    </div>
+                    <div class = "col-sm-6" style = "background-color: green;">col-sm-6</div>
+                </div>
+            </div>
+            <div class = "col-sm-4" style = "background-color: blue;">col-sm-4
+                <div class = "row">
+                    <div class = "col-sm-12" style = "background-color: yellow;">col-sm-12
+                        <div class = "row">
+                            <div class = "col-sm-4" style = "background-color: red;">col-sm-4</div>
+                            <div class = "col-sm-4" style = "background-color: green;">col-sm-4</div>
+                            <div class = "col-sm-4" style = "background-color: blue;">col-sm-4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!--table-striped rows-->
+    <div class = "container">
+        <table class = "table table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rahul</td>
+                    <td>Das</td>
+                    <td>rahul@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Mini</td>
+                    <td>Singh</td>
+                    <td>mini@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Arun</td>
+                    <td>Kumar</td>
+                    <td>arun@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!--table-bordered-->
+    <div class = "container">
+        <table class = "table table-bordered">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rahul</td>
+                    <td>Das</td>
+                    <td>rahul@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Mini</td>
+                    <td>Singh</td>
+                    <td>mini@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Arun</td>
+                    <td>Kumar</td>
+                    <td>arun@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!-- table-color -->
+    <div class = "container">
+        <table class = "table table-bordered">
+            <thead>
+                <tr class = "table-primary">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class = "table-danger">
+                    <td>Rahul</td>
+                    <td>Das</td>
+                    <td>rahul@gmail.com</td>
+                </tr>
+                <tr class = "table-success">
+                    <td>Mini</td>
+                    <td>Singh</td>
+                    <td>mini@gmail.com</td>
+                </tr>
+                <tr class = "table-info">
+                    <td>Arun</td>
+                    <td>Kumar</td>
+                    <td>arun@gmail.com</td>
+                </tr>
+                <tr class = "table-warning">
+                    <td>Arun</td>
+                    <td>Kumar</td>
+                    <td>arun@gmail.com</td>
+                </tr>
+                <tr class = "table-active">
+                    <td>Arun</td>
+                    <td>Kumar</td>
+                    <td>arun@gmail.com</td>
+                </tr>
+                <tr class = "table-secondary">
+                    <td>Arun</td>
+                    <td>Kumar</td>
+                    <td>arun@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!--table-hover-->
+    <div class = "container">
+        <table class = "table table-hover">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rahul</td>
+                    <td>Das</td>
+                    <td>rahul@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Mini</td>
+                    <td>Singh</td>
+                    <td>mini@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Arun</td>
+                    <td>Kumar</td>
+                    <td>arun@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!--table-dark-->
+    <div class = "container">
+        <table class = "table table-dark">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rahul</td>
+                    <td>Das</td>
+                    <td>rahul@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Mini</td>
+                    <td>Singh</td>
+                    <td>mini@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Arun</td>
+                    <td>Kumar</td>
+                    <td>arun@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!--table-borderless-->
+    <div class = "container">
+        <table class = "table table-borderless">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rahul</td>
+                    <td>Das</td>
+                    <td>rahul@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Mini</td>
+                    <td>Singh</td>
+                    <td>mini@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Arun</td>
+                    <td>Kumar</td>
+                    <td>arun@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!--table-size-->
+    <div class = "container">
+        <table class = "table table-sm"> <!-- sm/md/lg/xl/xxl -->
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Rahul</td>
+                    <td>Das</td>
+                    <td>rahul@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Mini</td>
+                    <td>Singh</td>
+                    <td>mini@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Arun</td>
+                    <td>Kumar</td>
+                    <td>arun@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!--nav-->
+    <div class = "container">
+        <h1>nav</h1>
+        <ul class = "nav">
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">Home</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">Contact</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">About us</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">game</a>
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!--nav justify-content-center-->
+    <div class = "container">
+        <h1>nav justify-content-center</h1>
+        <ul class = "nav justify-content-center">
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">Home</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">Contact</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">About us</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">game</a>
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!-- nav flex-column -->
+    <div class = "container">
+        <h1>nav flex-column</h1>
+        <ul class = "nav flex-column">
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">Home</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">Contact</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">About us</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">game</a>
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!--nav-tabs/pills with nav-link active-->
+    <div class = "container">
+        <h1>nav-tabs/pills with nav-link active</h1>
+        <ul class = "nav nav-tabs">
+            <li class = "nav-item">
+                <a class = "nav-link active" href = "#">Home</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">Contact</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">About us</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">game</a>
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!-- nav tab with tab-content -->
+    <div class = " container">
+        <h3>nav tab with tab-content</h3>
+        <ul class = "nav nav-pills">
+            <li class = "nav-item">
+                <a class = "nav-link active" data-toggle = "tab" href = "#home">HOME</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" data-toggle = "tab" href = "#contact">CONTACT</a>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" data-toggle = "tab" href = "#about">ABOUT</a>
+            </li>
+        </ul>
+
+        <!-- tab-content starts from here -->
+        <div class = "tab-content">
+            <div id = "home" class = "container tab-pane active">
+                <h3>HOME PAGE</h3>
+                <p>This is the home page</p>
+            </div>
+            <div id = "contact" class = "container tab-pane">
+                <h3>CONTACT PAGE</h3>
+                <p>This is the contact page</p>
+            </div>
+            <div id = "about" class = "container tab-pane">
+                <h3>ABOUT PAGE</h3>
+                <p>This is the about page</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <hr>
+    <hr>
+
+    <!--nav-link dropdown-toggle dropdown-menu-->
+    <div class = "container">
+        <ul class = "nav nav-tabs">
+            <li class = "nav-item">
+                <a class = "nav-link active" href = "#">Home</a>
+            </li>
+            <li class = "nav-item dropdown">
+                <a class = "nav-link dropdown-toggle" data-toggle = "dropdown" href = "#">Music</a>
+
+                <div class = "dropdown-menu">
+                    <a class = "dropdown-item" href = "resume.html">Hindi Music</a>
+                    <a class = "dropdown-item" href = "#">English Music</a>
+                    <a class = "dropdown-item" href = "#">Punjabi Music</a>
+                </div>
+            </li>
+            <li class = "nav-item">
+                <a class = "nav-link" href = "#">Games</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <a id = "bottom"></a>
+    <hr>
+</body>
+</html>

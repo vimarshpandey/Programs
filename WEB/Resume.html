@@ -7,20 +7,37 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script>
+    function makeTheme()
+    {
+      d = document.getElementById('body');
+      if (d.style.backgroundColor === 'black'){
+        d.style.color = 'black';
+        d.style.backgroundColor = 'white'
+        return
+      }
+      d.style.backgroundColor = 'black'
+      d.style.color = 'white';
+      return
+    }
+  </script>
 </head>
-<body>
+<body id="body">
     <div class="h1 text-center">RESUME</div>
     <div class="container">
         <div class="row ml-5 mt-5">
             <div class="col-9">
                 <ul class="nav mt-5 ml-5">
-                    <li class="nav-item"><a class="nav-link text-dark" href="#eq">|| Education  ||</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark" href="#pr">|| Projects ||</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark" href="#co">|| Activities ||</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark" href="#ac">|| Achievements ||</a></li>
+                    <li class="nav-item"><a class="nav-link text-info" href="#eq">|| Education  ||</a></li>
+                    <li class="nav-item"><a class="nav-link text-info" href="#pr">|| Projects ||</a></li>
+                    <li class="nav-item"><a class="nav-link text-info" href="#co">|| Activities ||</a></li>
+                    <li class="nav-item"><a class="nav-link text-info" href="#ac">|| Achievements ||</a></li>
                 </ul>
+                <div class="text-right">
+                    <button onclick="makeTheme()" style="border-radius:12px;">Theme Change</button>
+                </div>
             </div>
-            <div class="col-3"><img src="bhagatsingh.jpg" height="140%" width="80%"></img></div>
+            <div class="col-3"><img src="bhagatsingh.jpg" height="120%" width="80%"></img></div>
         </div>
             <div class="display-5 ml-5 mt-5 font-weight-bold">
                 About :-
