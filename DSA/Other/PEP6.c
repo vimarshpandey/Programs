@@ -1,8 +1,8 @@
 #include<stdio.h>
 int main()
 {
-    int arr[7]={1,3,4,5,4,3,1};
-    int sl=0,sr=0,l=6;
+    int arr[7]={5,0,5,4,1};
+    int sl=0,sr=0,l=4;
     for(int i=0;i<4;i++)
     {
         sl=sl+arr[i];
