@@ -32,5 +32,9 @@
     "**/.*/**",
     "**/.vscode",
     "**/.vscode/**"
-  ]
+  ],
+  "C_Cpp.errorSquiggles": "disabled",
+  "files.associations": {
+    "random": "c"
+  }
 }
