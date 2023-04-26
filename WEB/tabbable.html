@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        $(document).ready(function()
+        {
+            var states=['Punjab','Rajasthan','New Delhi','Arunachal Pradesh','Uttar Pradesh'];
+            var city=['Varanasi','Anjaw','Lohit','Lucknow','Mirzapur'];
+            $('#searchstate').typeahead(
+                {
+                    source: states
+                }
+            );
+            $('#searchcity').typeahead(
+                {
+                    source: city
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                <li><a href="#tab1" data-toggle="tab">States</a></li>
+                <li><a href="#tab2" data-toggle="tab">Cities</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane" id="tab1">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="searchstate" placeholder="Enter State">
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="searchcity" placeholder="Enter City">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
