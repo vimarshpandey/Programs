@@ -37,10 +37,10 @@
         <p class = "text-center">text-center</p>
         <p class = "text-right">text-right</p>
         <p class = "text-justify">text-justify</p>
-        <blockquote class = "blockquote">
+        <div class = "blockquote">
             <p>You can't cross the sea merely by standing and string at the water.</p>
-            <footer class = "blockquote-footer">owa owa</footer>
-        </blockquote>
+            <div class = "blockquote-footer">owa owa</div>
+        </div>
     </div>
 
     <hr/>
@@ -725,7 +725,7 @@
     <div class="container">
         <div class="text-center">Button State</div>
         <button type="button" class="btn btn-secondary active">Active</button>
-        <button type="button" class="btn btn-success btn-sm">Default</button>
+        <button type="button" class="btn btn-success">Default</button>
         <button type="button" class="btn btn-warning disabled">Disabled</button>
         <a class="btn btn-info active">a tag button</a>
     </div>
@@ -1057,7 +1057,7 @@
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Anand</a>
                 <a class="dropdown-item" href="#">Aadarsh</a>
-                <a class="dropdown-item" href="#">Anjli</a>
+                <a class="dropdown-item" href="#">Anjali</a>
                 <a class="dropdown-item" href="#">Kiran</a>
                 <a class="dropdown-item" href="#">Pushkar</a>
                 <a class="dropdown-item" href="#">Roshan</a>
@@ -1685,7 +1685,7 @@
         <code>
             &lt;font&gt;
             &lt;form&gt; &lt;/form&gt;
-            #include<stdio.h><br>
+            #include&lt;stdio.h&gt;<br>
                 int main()<br>
                 {<br>
                     int a=10, b=10;<br>
@@ -1757,8 +1757,8 @@
     <div class="container">
         <div class="text-center mb-3">Modal</div>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open Modal</button>
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog modal-lg">
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Modal Heading</h4>
