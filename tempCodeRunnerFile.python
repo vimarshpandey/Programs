@@ -1,0 +1,119 @@
+import sqlite3
+
+class Ticket:
+    def __init__(self, ticket_id, customer_name, issue_description, status='Open'):
+        self.ticket_id = ticket_id
+        self.customer_name = customer_name
+        self.issue_description = issue_description
+        self.status = status
+
+
+class HelpDesk:
+    def __init__(self):
+        self.conn = sqlite3.connect("helpdesk.db")
+        self.create_tables()
+
+    def create_tables(self):
+        cursor = self.conn.cursor()
+
+        # Create users table
+        cursor.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, password TEXT, role TEXT)")
+
+        # Create tickets table
+        cursor.execute("CREATE TABLE IF NOT EXISTS tickets (id INTEGER PRIMARY KEY, ticket_id INTEGER, customer_name TEXT, issue_description TEXT, status TEXT)")
+
+        self.conn.commit()
+
+    def add_user(self, username, password, role):
+        cursor = self.conn.cursor()
+        cursor.execute("INSERT INTO users (username, password, role) VALUES (?, ?, ?)",
+                       (username, password, role))
+        self.conn.commit()
+        print("User added successfully!")
+
+    def create_ticket(self, customer_name, issue_description):
+        cursor = self.conn.cursor()
+        cursor.execute("INSERT INTO tickets (ticket_id, customer_name, issue_description, status) VALUES ((SELECT COALESCE(MAX(ticket_id), 0) + 1 FROM tickets), ?, ?, 'Open')",
+                       (customer_name, issue_description))
+        self.conn.commit()
+        print("Ticket created successfully!")
+
+    def close_ticket(self, ticket_id):
+        cursor = self.conn.cursor()
+        cursor.execute("UPDATE tickets SET status = 'Closed' WHERE ticket_id = ?", (ticket_id,))
+        self.conn.commit()
+        if cursor.rowcount > 0:
+            print("Ticket closed successfully!")
+        else:
+            print("Ticket not found!")
+
+    def display_tickets(self):
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT * FROM tickets")
+        tickets = cursor.fetchall()
+        for ticket in tickets:
+            print(f"Ticket ID: {ticket[1]}")
+            print(f"Customer Name: {ticket[2]}")
+            print(f"Issue Description: {ticket[3]}")
+            print(f"Status: {ticket[4]}")
+            print("------------------------")
+
+    def login(self, username, password):
+        cursor = self.conn.cursor()
+        cursor.execute("SELECT role FROM users WHERE username = ? AND password = ?", (username, password))
+        result = cursor.fetchone()
+        if result:
+            return result[0]
+        else:
+            return None
+
+# Example usage
+help_desk = HelpDesk()
+
+# Populate the users table
+help_desk.add_user("admin", "admin123", "admin")
+help_desk.add_user("staff", "staff123", "staff")
+help_desk.add_user("user", "user123", "user")
+
+while True:
+    print("1. Create a new ticket")
+    print("2. Close a ticket")
+    print("3. Display all tickets")
+    print("4. Exit")
+    choice = input("Enter your choice: ")
+
+    if choice == '1':
+        username = input("Enter your username: ")
+        password = input("Enter your password: ")
+        role = help_desk.login(username, password)
+        if role == 'admin' or role == 'staff':
+            customer_name = input("Enter the customer name: ")
+            issue_description = input("Enter the issue description: ")
+            help_desk.create_ticket(customer_name, issue_description)
+        else:
+            print("Invalid username or password. Access denied.")
+
+    elif choice == '2':
+        username = input("Enter your username: ")
+        password = input("Enter your password: ")
+        role = help_desk.login(username, password)
+        if role == 'admin' or role == 'staff':
+            ticket_id = int(input("Enter the ticket ID to close: "))
+            help_desk.close_ticket(ticket_id)
+        else:
+            print("Invalid username or password. Access denied.")
+
+    elif choice == '3':
+        username = input("Enter your username: ")
+        password = input("Enter your password: ")
+        role = help_desk.login(username, password)
+        if role == 'admin' or role == 'staff':
+            help_desk.display_tickets()
+        else:
+            print("Invalid username or password. Access denied.")
+
+    elif choice == '4':
+        break
+
+    else:
+        print("Invalid choice. Please try again.")
