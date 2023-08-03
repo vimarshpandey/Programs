@@ -1,4 +1,7 @@
+import tkinter as tk
+from tkinter import messagebox
 import sqlite3
+
 
 class Ticket:
     def __init__(self, ticket_id, customer_name, issue_description, status='Open'):
@@ -29,34 +32,33 @@ class HelpDesk:
         cursor.execute("INSERT INTO users (username, password, role) VALUES (?, ?, ?)",
                        (username, password, role))
         self.conn.commit()
-        print("User added successfully!")
 
     def create_ticket(self, customer_name, issue_description):
         cursor = self.conn.cursor()
         cursor.execute("INSERT INTO tickets (ticket_id, customer_name, issue_description, status) VALUES ((SELECT COALESCE(MAX(ticket_id), 0) + 1 FROM tickets), ?, ?, 'Open')",
                        (customer_name, issue_description))
         self.conn.commit()
-        print("Ticket created successfully!")
 
     def close_ticket(self, ticket_id):
         cursor = self.conn.cursor()
         cursor.execute("UPDATE tickets SET status = 'Closed' WHERE ticket_id = ?", (ticket_id,))
         self.conn.commit()
         if cursor.rowcount > 0:
-            print("Ticket closed successfully!")
+            messagebox.showinfo("Ticket Closed", "Ticket closed successfully!")
         else:
-            print("Ticket not found!")
+            messagebox.showerror("Ticket Not Found", "Ticket not found!")
 
-    def display_tickets(self):
+    def delete_closed_tickets(self):
+        cursor = self.conn.cursor()
+        cursor.execute("DELETE FROM tickets WHERE status = 'Closed'")
+        self.conn.commit()
+        messagebox.showinfo("Tickets Deleted", "Closed tickets deleted successfully!")
+
+    def get_all_tickets(self):
         cursor = self.conn.cursor()
         cursor.execute("SELECT * FROM tickets")
         tickets = cursor.fetchall()
-        for ticket in tickets:
-            print(f"Ticket ID: {ticket[1]}")
-            print(f"Customer Name: {ticket[2]}")
-            print(f"Issue Description: {ticket[3]}")
-            print(f"Status: {ticket[4]}")
-            print("------------------------")
+        return tickets
 
     def login(self, username, password):
         cursor = self.conn.cursor()
@@ -67,53 +69,99 @@ class HelpDesk:
         else:
             return None
 
-# Example usage
-help_desk = HelpDesk()
 
-# Populate the users table
-help_desk.add_user("admin", "admin123", "admin")
-help_desk.add_user("staff", "staff123", "staff")
-help_desk.add_user("user", "user123", "user")
+class HelpDeskGUI:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Help Desk")
+        self.help_desk = HelpDesk()
 
-while True:
-    print("1. Create a new ticket")
-    print("2. Close a ticket")
-    print("3. Display all tickets")
-    print("4. Exit")
-    choice = input("Enter your choice: ")
+        # Login Frame
+        self.login_frame = tk.Frame(self.root)
+        self.login_frame.pack()
 
-    if choice == '1':
-        username = input("Enter your username: ")
-        password = input("Enter your password: ")
-        role = help_desk.login(username, password)
+        self.username_label = tk.Label(self.login_frame, text="Username:")
+        self.username_label.grid(row=0, column=0)
+        self.username_entry = tk.Entry(self.login_frame)
+        self.username_entry.grid(row=0, column=1)
+
+        self.password_label = tk.Label(self.login_frame, text="Password:")
+        self.password_label.grid(row=1, column=0)
+        self.password_entry = tk.Entry(self.login_frame, show="*")
+        self.password_entry.grid(row=1, column=1)
+
+        self.login_button = tk.Button(self.login_frame, text="Login", command=self.login)
+        self.login_button.grid(row=2, column=0, columnspan=2)
+
+        # Main Frame
+        self.main_frame = tk.Frame(self.root)
+
+        self.customer_name_label = tk.Label(self.main_frame, text="Customer Name:")
+        self.customer_name_label.grid(row=0, column=0)
+        self.customer_name_entry = tk.Entry(self.main_frame)
+        self.customer_name_entry.grid(row=0, column=1)
+
+        self.issue_description_label = tk.Label(self.main_frame, text="Issue Description:")
+        self.issue_description_label.grid(row=1, column=0)
+        self.issue_description_entry = tk.Entry(self.main_frame)
+        self.issue_description_entry.grid(row=1, column=1)
+
+        self.create_ticket_button = tk.Button(self.main_frame, text="Create Ticket", command=self.create_ticket)
+        self.create_ticket_button.grid(row=2, column=0, columnspan=2)
+
+        self.close_ticket_label = tk.Label(self.main_frame, text="Ticket ID:")
+        self.close_ticket_label.grid(row=3, column=0)
+        self.close_ticket_entry = tk.Entry(self.main_frame)
+        self.close_ticket_entry.grid(row=3, column=1)
+
+        self.close_ticket_button = tk.Button(self.main_frame, text="Close Ticket", command=self.close_ticket)
+        self.close_ticket_button.grid(row=4, column=0, columnspan=2)
+
+        self.delete_closed_tickets_button = tk.Button(
+            self.main_frame, text="Delete Closed Tickets", command=self.delete_closed_tickets
+        )
+        self.delete_closed_tickets_button.grid(row=5, column=0, columnspan=2)
+
+        self.tickets_text = tk.Text(self.main_frame, width=50, height=10)
+        self.tickets_text.grid(row=6, column=0, columnspan=2)
+
+    def login(self):
+        username = self.username_entry.get()
+        password = self.password_entry.get()
+        role = self.help_desk.login(username, password)
         if role == 'admin' or role == 'staff':
-            customer_name = input("Enter the customer name: ")
-            issue_description = input("Enter the issue description: ")
-            help_desk.create_ticket(customer_name, issue_description)
+            self.login_frame.pack_forget()
+            self.main_frame.pack()
+            self.display_tickets()
         else:
-            print("Invalid username or password. Access denied.")
+            messagebox.showerror("Access Denied", "Invalid username or password.")
 
-    elif choice == '2':
-        username = input("Enter your username: ")
-        password = input("Enter your password: ")
-        role = help_desk.login(username, password)
-        if role == 'admin' or role == 'staff':
-            ticket_id = int(input("Enter the ticket ID to close: "))
-            help_desk.close_ticket(ticket_id)
-        else:
-            print("Invalid username or password. Access denied.")
+    def create_ticket(self):
+        customer_name = self.customer_name_entry.get()
+        issue_description = self.issue_description_entry.get()
+        self.help_desk.create_ticket(customer_name, issue_description)
+        self.display_tickets()
 
-    elif choice == '3':
-        username = input("Enter your username: ")
-        password = input("Enter your password: ")
-        role = help_desk.login(username, password)
-        if role == 'admin' or role == 'staff':
-            help_desk.display_tickets()
-        else:
-            print("Invalid username or password. Access denied.")
+    def close_ticket(self):
+        ticket_id = self.close_ticket_entry.get()
+        self.help_desk.close_ticket(ticket_id)
+        self.display_tickets()
 
-    elif choice == '4':
-        break
+    def delete_closed_tickets(self):
+        self.help_desk.delete_closed_tickets()
+        self.display_tickets()
 
-    else:
-        print("Invalid choice. Please try again.")
+    def display_tickets(self):
+        tickets = self.help_desk.get_all_tickets()
+        self.tickets_text.delete(1.0, tk.END)
+        for ticket in tickets:
+            self.tickets_text.insert(tk.END, f"Ticket ID: {ticket[1]}\n")
+            self.tickets_text.insert(tk.END, f"Customer Name: {ticket[2]}\n")
+            self.tickets_text.insert(tk.END, f"Issue Description: {ticket[3]}\n")
+            self.tickets_text.insert(tk.END, f"Status: {ticket[4]}\n\n\n")
+            self.tickets_text.insert(tk.END, "------------------------\n\n\n")
+
+
+root = tk.Tk()
+help_desk_gui = HelpDeskGUI(root)
+root.mainloop()
