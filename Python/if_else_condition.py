@@ -2,7 +2,7 @@ x = 10
 y = 20
 
 print(x)
-print(type(y)) #for printing the type of variables
+print(type(y)) # for printing the type of variables
 
 if x > y:
     print("Hey!")
@@ -14,4 +14,4 @@ else:
     print(":)")
 
 for i in range(1, 11):
-    print(i * 2)
+    print(i * 2,end=" ")
