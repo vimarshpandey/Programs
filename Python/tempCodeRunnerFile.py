@@ -1,1 +1,0 @@
-file.seek(0)
